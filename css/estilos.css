@@ -1,0 +1,342 @@
+html{
+  box-sizing: border-box;
+  font-size: 62.5%; /*1 rem = 10 px*/
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+/****************** GLOBALES **********************/
+.contenedor{
+  max-width: 1100px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1{
+  font-size: 4.8rem;
+}
+h2{
+  font-size: 4rem;
+  line-height: 1.2;
+}
+h3{
+  font-size: 3.2rem;
+}
+h4{
+  font-size: 2.2rem;
+}
+
+img {
+  /*para que la imagenes se adaten al cotenedor*/
+  max-width: 100%;
+}
+
+/*********************** UTILIDADES **************/
+.centara-texto{
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/**********************  Grid  *************************************/
+@media (min-width:768px) {
+  .grid {
+    display: flex;
+    justify-content: space-between;
+    /*para que no se vallan los elementos a la derecha del form(contacto)*/
+    flex-wrap: wrap;
+  }
+
+.centrar-columnas{
+  /*centramos el formulario de contacto sobre la imagen*/
+  justify-content: center;
+}
+
+  .columnas-4{
+    flex: 0 0 calc(33.3% - 1rem);
+  }
+  .columnas-6{
+    flex: 0 0 calc(50% - 1rem);
+    text-align: justify;
+  }
+  .columnas-8{
+    flex: 0 0 calc(66.6% - 1rem);
+  }
+  .columnas-10{
+    flex: 0 0 calc(83.3% - 1rem);
+  }
+  .columnas-12{
+    flex: 0 0 100%;
+  }
+}
+
+
+/******************  BOTONES  ******************/
+.btn{
+display: block;
+text-align: center;
+padding: 1rem 3rem;
+margin: 2rem 0;
+color: rgb(215, 228, 216);
+text-decoration: none;
+font-family: 'PT Sans', sans-serif;
+font-weight: 400;
+/*convertir a mayuculas*/
+text-transform: uppercase;
+font-size: 2rem;
+}
+
+/*Cuando pasemos el mause por el boton saldra una mano*/
+.btn:hover {
+  cursor: pointer;
+}
+
+
+/*para que se date al tamanio*/
+@media (min-width:480px) {
+  .btn{
+    display: inline-block;
+  }
+}
+
+.btn-primario{
+  background-color: rgb(55, 59, 55);
+}
+
+.btn-secundario{
+  background-color: rgb(111, 74, 18);
+}
+
+
+/*********************** HEADER  *******************/
+@media (min-width:768px) {
+  /*para adactar el cntenido para una table*/
+  /*y para pocisionar el menu de navegacion*/
+  .barra{
+    display: flex;
+    justify-content: space-between;
+    /*para darle espacio al menu de navegacion de ariva hacia abajo*/
+    align-items: center;
+  }
+}
+
+
+.site-header{
+background-image: url(../img/banner.jpg);
+/*para q la img no se repita*/
+background-repeat: no-repeat;
+/*centramos la img*/
+background-position: center center;
+/*esto nos permite que se llene la img tanto alto como ancho*/
+background-size: cover;
+height: 60rem;
+}
+
+.site-header a{
+  color: #e8e6de;
+  text-decoration: none;
+}
+
+.site-header h1{
+  text-align: center;
+  /*letra mas delgada*/
+  font-weight: 400;
+}
+
+.site-header h1 span {
+  /*la parte de DeCafe estara mas gruesa*/
+  font-weight: 700;
+}
+
+/************************ NAVEGACION ******************/
+.navegacion a{
+  text-align: center;
+  /*cada item de la navegacion estara en una sola fila*/
+  display: block;
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/*para pocisionar el menu de navegacion lateralmente*/
+@media (min-width: 768px) {
+  .navegacion a{
+    display: inline;
+    margin-right: 2rem;
+  }
+  .navegacion a:last-of-type {
+    margin: 0;
+  }
+}
+
+/******************** HEADER TEXTO ************/
+.texto-header {
+  color: #f0e1e2;
+  text-align: center;
+  margin-top: 5rem; /*5rem = 50px*/
+}
+
+/*para darle mas espacio de ariva a blog de cafe con consejos y cursos*/
+@media (min-width: 768px) {
+  .texto-header{
+    margin-top: 15rem;
+  }
+}
+
+
+.texto-header p {
+  /*hacemos mas grande el parrafo*/
+  font-size: 2.2rem;
+}
+
+
+
+/*****************  CONTENIDO PRINCIPAL HOME  *********/
+.contenido-principal {
+  /*posicionar uno frente a otro*/
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*para dispositivos pequenios y se adacte*/
+.blog, .cursos {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+}
+
+.cursos {
+  /*para que se muestre primero los cursos y luego el bolog*/
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .contenido-principal{
+    justify-content: space-between;
+  }
+  .blog{
+    flex-basis: 66.6%;
+    order: -1;
+  }
+  .cursos{
+    /*coloca uno a aldo del otro cursos y blog*/
+    flex-basis: calc(33.3% - 4rem);
+  }
+}
+
+/********  OPCIONAL ****************/
+.entrada-blog{
+  margin-bottom: 2rem;
+  /*agrega linea separadora */
+  border-bottom: 1px solid #4d4747;
+}
+
+/*para que elimine  elultimo separador linea gris*/
+.entrada-blog:last-of-type{
+  border: none
+}
+
+
+/*********************  CURSOS sidebar  **************/
+.cursos-lista{
+  padding: 0;
+  /*para elimianr las vinietas*/
+  list-style: none;
+}
+
+.curso {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #e6e8ee;
+}
+/*para eliminar separdor de la pare de cursos y atlleres*/
+.curso:last-of-type {
+  border-bottom: none;
+}
+
+/*para poner en negreta precio y cupo */
+.curso p{
+  font-family: 'PT Snas', snas-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.curso p span {
+  font-weight: 400;
+}
+
+
+
+/*********  Footer  ************************/
+.site-footer{
+  background-color: #212222;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.site-footer {
+  color:#f1e7e6;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: 'PT Snas', snas-serif;
+  text-align: center;
+}
+
+.site-footer p span {
+  font-weight: 700;
+}
+
+/*********************  CONTACTO  *****************************************/
+.formulario-contacto{
+background-color: #eaeef0;
+padding: 5rem;
+}
+
+@media (min-width:768px) {
+  .formulario-contacto{
+    margin-top: -10rem;
+  }
+}
+
+.formulario-contacto .campo{
+  /*separamos los label de las cajas de ingres de datos*/
+  display: flex;
+  justify-content: space-between;
+  /*para dar separacion entre campos*/
+  margin-bottom: 2rem;
+}
+
+.formulario-contacto .campo label {
+  flex: 0 0 8rem;
+}
+
+/*para que las cajas de texto label y text area crescan y ocupentodo el espacio*/
+.formulario-contacto .campo input:not([type="submit"]),
+.formulario-contacto textarea{
+  flex: 1;
+  border: 1px solid #918f8c;
+  padding: 1rem;
+}
+
+.formulario-contacto textarea{
+  height: 20rem;
+}
+
+.formulario-contacto .enviar{
+  display: flex;
+  /*pocisiona el boton a la derecha*/
+  justify-content: flex-end;
+}
